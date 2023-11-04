@@ -4,7 +4,7 @@ let systems = [];
 function setup() {
   createCanvas(720, 400);
   
-  gravity = createVector(0,random(-1,1));
+  gravity = createVector(0,0.1);
 }
 
 function draw() {

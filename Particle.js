@@ -3,7 +3,6 @@ class Particle {
     this.acceleration = createVector(0, 0);
     this.velocity = createVector(random(-1,1),0);
     this.position = position.copy();
-    this.lifespan = 255;
     this.w = random(1, 20);
     this.r = random(0, 255);
     this.g = random(0, 255);
@@ -12,8 +11,8 @@ class Particle {
 
   run() {
     this.update();
-    this.display();
     this.checkEdges();
+    this.display();
   }
 
   applyForce(aForce) {
@@ -29,14 +28,10 @@ class Particle {
   }
 
   display() {
-    stroke(200, this.lifespan);
+    stroke(200);
     strokeWeight(2);
-    fill(this.r, this.g, this.b, this.lifespan);
+    fill(this.r, this.g, this.b);
     ellipse(this.position.x, this.position.y, this.w);
-  }
-
-  isDead() {
-    return this.lifespan < 0;
   }
 
   checkEdges() {
