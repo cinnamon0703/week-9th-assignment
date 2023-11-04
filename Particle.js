@@ -37,11 +37,11 @@ class Particle {
     } else {
       triangle(
         this.position.x,
-        this.position.y - this.w ,
-        this.position.x - this.w ,
-        this.position.y + this.w ,
-        this.position.x + this.w ,
-        this.position.y + this.w 
+        this.position.y - this.w/2 ,
+        this.position.x - this.w/2,
+        this.position.y + this.w/2 ,
+        this.position.x + this.w/2 ,
+        this.position.y + this.w/2 
       );
     }
   }
