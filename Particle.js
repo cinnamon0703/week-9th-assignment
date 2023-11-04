@@ -1,12 +1,13 @@
 class Particle {
   constructor(position) {
     this.acceleration = createVector(0, 0);
-    this.velocity = createVector(random(-1,1),0);
+    this.velocity = createVector(random(-1, 1), random(-1, 1));
     this.position = position.copy();
     this.w = random(1, 20);
     this.r = random(0, 255);
     this.g = random(0, 255);
     this.b = random(0, 255);
+    this.shape = random(3);
   }
 
   run() {
@@ -29,7 +30,13 @@ class Particle {
     stroke(200);
     strokeWeight(2);
     fill(this.r, this.g, this.b);
-    ellipse(this.position.x, this.position.y, this.w);
+    if (this.shape == 0) {
+      ellipse(this.position.x, this.position.y, this.w); 
+    } else if (this.shape == 1) {
+      rect(this.position.x, this.position.y, this.w, this.w); 
+    } else {
+      triangle(this.position.x, this.position.y, this.position.x, this.position.y, this.position.x, this.position.y,); 
+    }
   }
 
   checkEdges() {
