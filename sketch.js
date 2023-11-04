@@ -28,8 +28,14 @@ function mouseClicked() {
   let mpos = createVector(mouseX, mouseY);
   let s = new ParticleSystem(mpos);
   systems.push(s);
-  
-  
-  
+    
+}
+
+function keyPressed() {
+  if (keyCode === DOWN_ARROW) {
+    if (systems.length > 0) {
+      systems.splice(0, 1);
+    }
+  }
 }
 
