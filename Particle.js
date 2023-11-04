@@ -7,7 +7,7 @@ class Particle {
     this.r = random(0, 255);
     this.g = random(0, 255);
     this.b = random(0, 255);
-    this.shape = random(3);
+    this.shape = floor(random(3))
   }
 
   run() {
