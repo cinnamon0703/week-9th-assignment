@@ -7,7 +7,7 @@ class Particle {
     this.r = random(0, 255);
     this.g = random(0, 255);
     this.b = random(0, 255);
-    this.shape = floor(random(3))
+    this.shape = floor(random(3));
   }
 
   run() {
@@ -19,7 +19,7 @@ class Particle {
   applyForce(aForce) {
     this.acceleration.add(aForce);
   }
-  
+
   update() {
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
@@ -31,17 +31,24 @@ class Particle {
     strokeWeight(2);
     fill(this.r, this.g, this.b);
     if (this.shape == 0) {
-      ellipse(this.position.x, this.position.y, this.w); 
+      ellipse(this.position.x, this.position.y, this.w);
     } else if (this.shape == 1) {
-      rect(this.position.x, this.position.y, this.w, this.w); 
+      rect(this.position.x, this.position.y, this.w, this.w);
     } else {
-      triangle(this.position.x, this.position.y, this.position.x, this.position.y, this.position.x, this.position.y,); 
+      triangle(
+        this.position.x,
+        this.position.y - this.w ,
+        this.position.x - this.w ,
+        this.position.y + this.w ,
+        this.position.x + this.w ,
+        this.position.y + this.w 
+      );
     }
   }
 
   checkEdges() {
     if (this.position.x > width || this.position.x < 0) {
-      this.velocity.x *= -1; 
+      this.velocity.x *= -1;
     }
     if (this.position.y > height || this.position.y < 0) {
       this.velocity.y *= -1;
