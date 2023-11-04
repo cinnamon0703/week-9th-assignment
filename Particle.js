@@ -8,12 +8,12 @@ class Particle {
     this.r = random(0, 255);
     this.g = random(0, 255);
     this.b = random(0, 255);
-    
   }
 
   run() {
     this.update();
     this.display();
+    this.checkEdges();
   }
 
   applyForce(aForce) {
@@ -25,7 +25,7 @@ class Particle {
     this.position.add(this.velocity);
     this.lifespan -= 2;
     
-    this. acceleration = createVector(0,0);
+    this.acceleration = createVector(0, 0);
   }
 
   display() {
@@ -37,5 +37,14 @@ class Particle {
 
   isDead() {
     return this.lifespan < 0;
+  }
+
+  checkEdges() {
+    if (this.position.x > width || this.position.x < 0) {
+      this.velocity.x *= -1; 
+    }
+    if (this.position.y > height || this.position.y < 0) {
+      this.velocity.y *= -1;
+    }
   }
 }
